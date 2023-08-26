@@ -1,8 +1,6 @@
 https://www.youtube.com/watch?v=XBTJDpT2XaI
-1:03:45
-Forms
+1:18:19
+Dynamic Inputs
 
 
 https://jsonplaceholder.typicode.com/users
-
-Codespace? Pull

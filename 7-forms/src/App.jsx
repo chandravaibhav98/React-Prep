@@ -1,35 +1,72 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+	const [objData, setObjData] = useState({});
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	const getInputs = (value, name) => {
+		let data = { [name]: value };
+		setObjData({ ...objData, ...data });
+
+		console.group(
+			`getInputs()\n ${name}: ${value}`,
+			'\nData-',
+			data,
+			'\nsetObjData-',
+			objData,
+		);
+		console.groupEnd();
+	};
+	const submit = (event) => {
+		event.preventDefault();
+		console.log(objData);
+	};
+
+	return (
+		<div className="App">
+			<div className="form">
+				<form onSubmit={submit}>
+					<input
+						type="text"
+						placeholder="Name"
+						name="name"
+						onChange={() =>
+							getInputs(event.target.value, event.target.name)
+						}
+					/>
+					<input
+						type="number"
+						placeholder="Age"
+						name="age"
+						onChange={() =>
+							getInputs(event.target.value, event.target.name)
+						}
+					/>
+					<input
+						type="text"
+						placeholder="Hobbies"
+						name="hobbies"
+						onChange={() =>
+							getInputs(event.target.value, event.target.name)
+						}
+					/>
+					<input
+						type="date"
+						placeholder="DOB"
+						name="dob"
+						onChange={() =>
+							getInputs(event.target.value, event.target.name)
+						}
+					/>
+					<button type="submit">form Submit</button>
+					<button type="reset">form Reset</button>
+				</form>
+				<button onClick={submit}>onClick Submit</button>
+			</div>
+		</div>
+	);
 }
 
-export default App
+export default App;

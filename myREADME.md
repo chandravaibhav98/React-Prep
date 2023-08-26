@@ -3,5 +3,7 @@
 3. Props
 4. Inline Conditional Expressions
 5. Event Handling
-6. Keys (map)
+6. Keys (map element)
 7. Forms
+   - onClick, formSubmit, formReset
+8. Dynamic Inputs
