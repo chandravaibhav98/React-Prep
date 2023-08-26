@@ -1,3 +1,5 @@
-1. map & Filter
-2. states
-3. 
+1. Map & Filter
+2. States
+3. Props
+4. Inline Conditional Expressions
+5. Event Handling
