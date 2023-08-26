@@ -1,5 +1,6 @@
 https://www.youtube.com/watch?v=XBTJDpT2XaI
-26:14
+40:40
+Inline Conditional Expressions
 
 
 https://jsonplaceholder.typicode.com/users
