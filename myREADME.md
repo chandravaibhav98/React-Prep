@@ -7,3 +7,5 @@
 7. Forms
    - onClick, formSubmit, formReset
 8. Dynamic Inputs
+9. CSS Styling in React
+10. Uncontrolled VS Controlled Components

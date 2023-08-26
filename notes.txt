@@ -1,6 +1,6 @@
 https://www.youtube.com/watch?v=XBTJDpT2XaI
-1:18:19
-Dynamic Inputs
+1:37:17
+Uncontrolled vs Controlled Components
 
 
 https://jsonplaceholder.typicode.com/users
