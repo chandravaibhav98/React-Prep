@@ -1,6 +1,5 @@
 https://www.youtube.com/watch?v=XBTJDpT2XaI
-1:46:29
-Uncontrolled vs Controlled Components
-
+1:52:23
+innerHTML
 
 https://jsonplaceholder.typicode.com/users

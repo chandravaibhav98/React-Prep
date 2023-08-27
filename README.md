@@ -12,4 +12,5 @@
 9. CSS Styling in React
 10. Uncontrolled VS Controlled Components
 11. InnerHTML
+    - dangerouslySetInnerHTML, react-quill
 12. React Fragments
