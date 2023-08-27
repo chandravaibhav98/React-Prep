@@ -23,6 +23,19 @@ function App() {
 				console.log(res);
 				console.log(res.data);
 				console.groupEnd();
+				// setUsers(res.data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
+	//  GET
+	const getData = () => {
+		axios
+			.get('https://64eb7019e51e1e82c5775b76.mockapi.io/users')
+			.then((res) => {
+				console.log(res.data);
 				setUsers(res.data);
 			})
 			.catch((err) => {
@@ -30,24 +43,47 @@ function App() {
 			});
 	};
 
-	// GET
 	useEffect(() => {
+		// GET
+		getData();
+	}, []);
+
+	// PUT
+	const updateData = (id) => {
+		console.log('UPDATE' + id);
 		axios
-			.get('https://64eb7019e51e1e82c5775b76.mockapi.io/users')
+			.put(`https://64eb7019e51e1e82c5775b76.mockapi.io/users/${id}`, {
+				name: name,
+				age: age,
+				hobbies: hobbies,
+			})
 			.then((res) => {
-				console.group('res | res.data');
-				console.log(res);
 				console.log(res.data);
-				console.groupEnd();
 				setUsers(res.data);
+				getData();
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-	}, []);
+	};
 
-	// UPDATE / PATCH
-	const updateData = () => {};
+	//  DELETE
+	const deleteData = (id) => {
+		console.log('DELETE' + id);
+		axios
+			.delete(`https://64eb7019e51e1e82c5775b76.mockapi.io/users/${id}`, {
+				name: name,
+				age: age,
+				hobbies: hobbies,
+			})
+			.then((res) => {
+				console.log(res.data);
+				getData();
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
 
 	return (
 		<div className="App">
@@ -76,17 +112,27 @@ function App() {
 			<button onClick={postData}>postData</button>
 			<hr />
 			<h2>GET</h2>
-			{users.map((user, index) => {
+			{users.map((user) => {
 				return (
 					<>
-						<h4 key={index}>
-							Name: {user.name}, Age: {user.age}
+						<div key={user.id}>
+							<p>
+								{user.id}. Name: {user.name}, Age: {user.age},
+								Hobbies: {user.hobbies}
+							</p>
 							<button
-								key={index}
-								onClick={updateData}>
-								Update
+								key={user.id}
+								onClick={() => updateData(user.id)}>
+								UPDATE ID-{user.id}
 							</button>
-						</h4>
+							<button
+								key={user.id}
+								onClick={() => deleteData(user.id)}>
+								DELETE ID-{user.id}
+							</button>
+							<br />
+							<hr />
+						</div>
 					</>
 				);
 			})}
