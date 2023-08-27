@@ -1,4 +1,5 @@
 - Virtual DOM (Reconciliation)
+- Stateless VS Stateful Components
 
 1. Map & Filter
 2. States
@@ -14,3 +15,4 @@
 11. InnerHTML
     - dangerouslySetInnerHTML, react-quill
 12. React Fragments
+13. REST API Requests
