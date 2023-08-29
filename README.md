@@ -17,4 +17,4 @@
 12. React Fragments
 13. REST API Requests
     - POST, GET, PUT, DELETE
-14. Debouncing in React
+14. Debouncing 

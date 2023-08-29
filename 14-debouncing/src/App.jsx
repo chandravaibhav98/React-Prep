@@ -1,35 +1,72 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import './App.css';
+
+const pinAPI = `https://api.postalpincode.in/pincode/`;
 
 function App() {
-  const [count, setCount] = useState(0)
+	const [pin, setPin] = useState('');
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	const searchPin = (value) => {
+		axios
+			.get(pinAPI + value)
+			.then((response) => {
+				if (response.data[0].Status === 'Success') {
+					console.group('Found! Status : ' + response.data[0].Status);
+					console.info(response.data[0]);
+					console.info(response.data[0].PostOffice);
+					console.groupEnd();
+				} else {
+					console.info(response.data[0]);
+				}
+			})
+			.catch((error) => {
+				console.warn(error);
+			});
+	};
+
+	//  Debouncing
+	useEffect(() => {
+		const debouncePin = setTimeout(() => {
+			axios
+				.get(pinAPI + pin)
+				.then((response) => {
+					if (response.data[0].Status === 'Success') {
+						console.group(
+							'Found! Status : ' + response.data[0].Status,
+						);
+						console.info(response.data[0]);
+						console.info(response.data[0].PostOffice);
+						console.groupEnd();
+					} else {
+						console.info(response.data[0]);
+					}
+				})
+				.catch((error) => {
+					console.warn(error);
+				});
+		}, 2000);
+		return () => {
+			clearTimeout(debouncePin);
+		};
+	}, [pin]);
+
+	return (
+		<div className="App">
+			<h1>Debouncing</h1>
+			<h2>Enter Pincode</h2>
+			<input
+				type="text"
+				placeholder="searchPin"
+				onChange={(event) => searchPin(event.target.value)}
+			/>
+			<input
+				type="text"
+				placeholder="debouncePin"
+				onChange={(event) => setPin(event.target.value)}
+			/>
+		</div>
+	);
 }
 
-export default App
+export default App;
