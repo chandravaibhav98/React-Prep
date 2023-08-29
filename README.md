@@ -17,4 +17,6 @@
 12. React Fragments
 13. REST API Requests
     - POST, GET, PUT, DELETE
-14. Debouncing 
+14. Debouncing
+15. Context API
+    - createContext, Provider, useContext
