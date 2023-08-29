@@ -25,7 +25,7 @@ function App() {
 			});
 	};
 
-	//  Debouncing
+	//  Debouncing (using useEffect)
 	useEffect(() => {
 		const debouncePin = setTimeout(() => {
 			axios
