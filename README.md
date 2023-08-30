@@ -1,5 +1,6 @@
 - Virtual DOM (Reconciliation)
 - Stateless VS Stateful Components
+- class VS className
 
 1. Map & Filter
 2. States
