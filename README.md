@@ -1,4 +1,6 @@
-- Virtual DOM (Reconciliation)
+# topics #
+
+- Virtual-DOM (Reconciliation)
 - Stateless VS Stateful Components
 - class VS className
 
@@ -23,3 +25,6 @@
     - createContext, Provider, useContext
 16. Higher Order Components
 17. Lazy Loading
+18. Recursion in React
+19. Arrays of Functions
+20. Custom Hooks
