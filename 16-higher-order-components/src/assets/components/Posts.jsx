@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import HigherOrder from '../../HigherOrder';
 
-const Posts = () => {
+const Posts = ({ data }) => {
 	const [posts, setPosts] = useState([]);
 
 	const getPosts = async () => {
@@ -21,11 +22,13 @@ const Posts = () => {
 	return (
 		<div>
 			<h2>Posts</h2>
-			{posts.slice(0, 10).map((post) => {
-				return <p>Title :{post.title}</p>;
+			{data.slice(0, 10).map((user) => {
+				return <p key={user.id}>Title :{user.title}</p>;
 			})}
 		</div>
 	);
 };
 
-export default Posts;
+const PostsComp = HigherOrder('Posts', Posts, 'posts');
+
+export default PostsComp;

@@ -1,29 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import HigherOrder from '../../HigherOrder';
 
-const Users = () => {
-	const [users, setUsers] = useState([]);
-	const getUsers = async () => {
-		let users = await fetch(`https://jsonplaceholder.typicode.com/users`)
-			.then((response) => {
-				return response;
-			})
-			.catch((error) => {
-				return error;
-			});
-
-		setUsers(await users.json());
-	};
-	useEffect(() => {
-		getUsers();
-	}, []);
+const Users = ({ data }) => {
 	return (
 		<div>
 			<h2>Users</h2>
-			{users.slice(0, 10).map((user) => {
-				return <p>Name :{user.name}</p>;
+			{data.slice(0, 10).map((user) => {
+				return <p key={user.id}>Name :{user.name}</p>;
 			})}
 		</div>
 	);
 };
 
-export default Users;
+const UserComp = HigherOrder('Users', Users,'users');
+
+export default UserComp;
