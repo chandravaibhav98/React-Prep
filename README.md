@@ -21,3 +21,5 @@
 14. Debouncing
 15. Context API
     - createContext, Provider, useContext
+16. Higher Order Components
+17. Lazy Loading
