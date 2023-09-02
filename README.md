@@ -25,6 +25,9 @@
     - createContext, Provider, useContext
 16. Higher Order Components
 17. Lazy Loading
-18. Recursion in React
-19. Arrays of Functions
-20. Custom Hooks
+18. Helper Functions
+19. Recursion in React
+20. Arrays of Functions
+21. Custom Hooks
+22. Promises & Async / Await
+23. Code Splitting / Dynamic Imports
