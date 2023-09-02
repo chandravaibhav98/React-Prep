@@ -32,3 +32,4 @@
 22. Promises & Async / Await
 23. Code Splitting / Dynamic Imports
 24. Search Filter
+25. Typescript
