@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import './App.css';
+import NormalCall from './NormalCall';
+import CachedCall from './CachedCall';
 
 function App() {
-  const [count, setCount] = useState(0)
+	let queryClient = QueryClient();
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	return (
+		<QueryClientProvider client={queryClient}>
+			<div className="App">
+				<h1>Normal Call and Cached Call</h1>
+				<Routes>
+					<Route
+						path="/normal-call"
+						element={<NormalCall />}
+					/>
+					<Route
+						path="/cached-call"
+						element={<CachedCall />}
+					/>
+				</Routes>
+			</div>
+		</QueryClientProvider>
+	);
 }
 
-export default App
+export default App;

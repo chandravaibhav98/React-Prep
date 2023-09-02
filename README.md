@@ -33,3 +33,5 @@
 23. Code Splitting / Dynamic Imports
 24. Search Filter
 25. Typescript
+26. Unit tests with @testing-library/react
+27. Caching Api Response
